@@ -6,10 +6,10 @@ python + celery + redis + rabbitmq
 ## 目录结构
 
     ├── celery_cluster
+    │   ├── __init__.py
     │   ├── agent2.py
     │   ├── agent.py
     │   ├── config.py
-    │   ├── __init__.py
     │   ├── maincelery.py
     │   └── multi.py
     ├── Test2.py
