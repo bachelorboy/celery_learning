@@ -32,7 +32,7 @@ def send(self):
 # graceful=True表示遇到重复方法时静默处理 AlreadyQueue异常
 @app.task(base=QueueOnce, once={'graceful': True})
 def add(x, y):
-    time.sleep(20)
+    time.sleep(2)
     return {'the value is': str(x + y)}
 
 
