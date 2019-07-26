@@ -4,10 +4,10 @@ from kombu.serialization import registry
 from kombu import serialization
 from datetime import timedelta
 
-BROKER_URL = 'amqp://caifaming:123456@192.168.68.131//'
+BROKER_URL = 'amqp://localhost//'
 # 不要用rabbitmq作为backend,因为rabbitmq会为每个任务结果创建一个队列,导致队列越来越多(不确定)
-# CELERY_RESULT_BACKEND = 'amqp://caifaming:123456@192.168.68.131//'
-CELERY_RESULT_BACKEND = 'redis://localhost'
+CELERY_RESULT_BACKEND = 'amqp://localhost//'
+# CELERY_RESULT_BACKEND = 'redis://localhost'
 CELERY_TASK_RESULT_EXPIRES = 3600  # 任务结果超时时间
 CELERY_TASK_SERIALIZER = 'pickle'  # 任务序列化方式
 CELERY_RESULT_SERIALIZER = 'pickle' # 任务执行结果序列化方式
@@ -20,7 +20,7 @@ CELERYD_PREFETCH_MULTIPLIER = 1  # celery worker 每次去rabbitmq取任务的�
 
 # CELERY_IGNORE_RESULT = False
 # worker在任务执行完之后确认
-CELERY_TASK_ACKS_LATE = True  # 开启ack应答,任务执行完则worker向broker发送应答信号,broker再删除队列中的消息
+CELERY_ACKS_LATE = True  # 开启ack应答,任务执行完则worker向broker发送应答信号,broker再删除队列中的消息
 CELERY_TRACK_STARTED = True  # worker执行任务时，任务更性状态为已启动
 CELERYD_MAX_TASKS_PER_CHILD = 200  # 每个worker子进程执行了多少次任务后会挂掉，主要是释放资源，防止内存泄漏
 
