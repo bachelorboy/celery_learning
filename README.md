@@ -1,7 +1,7 @@
 celery demo
 ===========
 
-python + celery + redis + rabbitmq
+python + celery + rabbitmq
 
 ## 目录结构
 
@@ -17,7 +17,7 @@ python + celery + redis + rabbitmq
 
 
 ## 介绍
-broker采用rabbitmq, backend采用redis
+broker采用rabbitmq, backend也采用rabbitmq
 两个任务模块agent.py, agent2.py, 配置文件config.py.   
 包含异步任务, 定时任务   
 若任务参数传递自定义对象, 则任务序列化方式只能是pickle;   
